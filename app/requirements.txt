@@ -9,6 +9,9 @@ passlib[bcrypt]
 
 python-multipart
 
+pydantic-settings
+
+
 pytesseract
 Pillow
 easyocr
