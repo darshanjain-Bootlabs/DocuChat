@@ -13,7 +13,6 @@ scikit-learn==1.4.2
 faiss-cpu==1.8.0
 
 sentence-transformers==2.6.1
-openai-whisper==20231117
 
 chromadb==0.4.24
 
