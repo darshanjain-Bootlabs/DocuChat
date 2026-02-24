@@ -1,3 +1,6 @@
+from app import tests
+
+
 name: RAG Backend CI
 
 on:
@@ -28,4 +31,9 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: pytest
+        run: 
+        pytest
+
+
+
+
