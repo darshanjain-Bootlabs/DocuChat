@@ -48,6 +48,11 @@ def generate_response(query: str):
     docs = similarity_search(query, k=3)
     context = build_context(query)
     prompt = build_prompt(query, context)
+    contexts = [
+            {
+                "context": doc.page_content,
+            }
+            for doc in docs]
     rresponse = client.chat.completions.create(
         model=MODEL_NAME,
         messages=[{"role": "user", "content": prompt}],
@@ -57,12 +62,7 @@ def generate_response(query: str):
     answer = rresponse.choices[0].message.content
 
     return {
-        "answer": answer,
-        "sources": [
-            {
-                "content": doc.page_content,
-                "metadata": doc.metadata,
-            }
-            for doc in docs
-        ]
+    "question": query,
+    "answer": answer,
+    "contexts": contexts
     }
